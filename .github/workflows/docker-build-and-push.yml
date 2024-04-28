@@ -1,10 +1,11 @@
-name: Build Docker Container
+name: docker-build-and-push-image
 
 on:
   push:
     branches:
       - main
       - master 
+  workflow_dispatch:
 
 jobs:
   docker-build-and-push-image:
@@ -26,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-issue-creation-rest-api:v${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:v${{ github.run_number }}
