@@ -11,7 +11,7 @@ jobs:
   docker-build-and-push-image:
     runs-on: ubuntu-latest
     steps:
-      - name: print the docker name
+      - name: Print the docker name
         run: |
           echo  "Docker image name is: ${{ github.event.repository.name }}:v${{ github.run_number }}"
       - name: Set up QEMU
